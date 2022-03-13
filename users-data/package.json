@@ -1,0 +1,16 @@
+{
+  "name": "users-data",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["users", "registration", "authentication"],
+  "author": "Ismael García Luján",
+  "license": "ISC",
+  "dependencies": {
+    "mongodb": "^4.2.1",
+    "mongoose": "^6.0.14"
+  }
+}

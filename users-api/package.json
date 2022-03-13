@@ -1,0 +1,34 @@
+{
+  "name": "users-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node .",
+    "watch": "nodemon .",
+    "inspect": "node --inspect-brk .",
+    "watch-inspect": "nodemon --inspect-brk .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "users",
+    "registration",
+    "authentication"
+  ],
+  "author": "Ismael García Luján",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.2",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "users-data": "file:../users-data",
+    "users-errors": "file:../users-errors",
+    "users-logic": "file:../users-logic",
+    "winston": "^3.3.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
