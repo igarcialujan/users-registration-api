@@ -63,11 +63,8 @@ const user = new Schema({
             }
         ]
     },
-    // favs and searchs were included for a specific application
+    // favs was included for a specific application
     favs: {
-        type: Array
-    },
-    searchs: {
         type: Array
     }
 })
