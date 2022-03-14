@@ -7,7 +7,7 @@ const myFormat = printf(({ level, message, label, timestamp }) => {
 const logger = createLogger({
     level: 'debug',
     format: combine(
-        label({ label: 'USERS-API' }),
+        label({ label: 'USERS-REGISTRATION-API' }),
         timestamp(),
         myFormat
     ),
