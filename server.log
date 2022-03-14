@@ -1264,3 +1264,6 @@
 [USERS-API] 2022-03-11T12:59:32.474Z info: server up and listening on port 8000...
 [USERS-API] 2022-03-11T14:43:02.137Z warn: user with email peterpan@gmail.com already exists
 [USERS-API] 2022-03-11T14:57:56.412Z info: stopping server
+[USERS-API] 2022-03-14T09:03:20.146Z info: starting server
+[USERS-API] 2022-03-14T09:03:20.768Z info: server up and listening on port 8000...
+[USERS-API] 2022-03-14T09:10:21.628Z info: stopping server

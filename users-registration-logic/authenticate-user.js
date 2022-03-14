@@ -1,6 +1,6 @@
 const { validateUsername, validatePassword } = require('./helpers/validators')
-const { CredentialsError } = require('users-errors')
-const { models: { User } } = require('users-data')
+const { CredentialsError } = require('users-registration-errors')
+const { models: { User } } = require('users-registration-data')
 const bcrypt = require('bcryptjs')
 const { sanitizeDocument } = require( './helpers/sanitizers' )
 

@@ -1,4 +1,4 @@
-const { authenticateUser } = require('users-logic')
+const { authenticateUser } = require('users-registration-logic')
 const jwt = require('jsonwebtoken')
 const { env: { SECRET } } = process
 const { handleError } = require('./helpers')

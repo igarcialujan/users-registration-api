@@ -1,4 +1,4 @@
-const { FormatError } = require('users-errors')
+const { FormatError } = require('../../users-registration-errors')
 
 function validateId(id) {
     if (typeof id !== 'string') throw new TypeError('id is not a string')

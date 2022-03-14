@@ -1,4 +1,4 @@
-const { registerUser } = require('users-logic')
+const { registerUser } = require('users-registration-logic')
 const { handleError } = require('./helpers')
 
 module.exports = async (req, res) => {

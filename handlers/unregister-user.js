@@ -1,4 +1,4 @@
-const { unregisterUser } = require('users-logic')
+const { unregisterUser } = require('users-registration-logic')
 const { handleError, validateAuthorizationAndExtractPayload } = require('./helpers')
 
 module.exports = async (req, res) => {

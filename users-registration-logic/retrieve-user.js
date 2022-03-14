@@ -1,6 +1,6 @@
-const { models: { User } } = require('users-data')
+const { models: { User } } = require('users-registration-data')
 const { validateId } = require('./helpers/validators')
-const { NotFoundError } = require('users-errors')
+const { NotFoundError } = require('users-registration-errors')
 const { sanitizeDocument } = require('./helpers/sanitizers')
 
 function retrieveUser(id) {

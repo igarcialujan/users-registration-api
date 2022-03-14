@@ -1,7 +1,7 @@
 require('dotenv').config()
 const express = require('express')
 const bodyParser = require('body-parser')
-const { mongoose } = require('users-data')
+const { mongoose } = require('users-registration-data')
 const cors = require('cors')
 const { 
     registerUser, 

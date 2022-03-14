@@ -23,9 +23,9 @@
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
-    "users-data": "file:./users-data",
-    "users-errors": "file:./users-errors",
-    "users-logic": "file:./users-logic",
+    "users-registration-data": "file:./users-registration-data",
+    "users-registration-errors": "file:./users-registration-errors",
+    "users-registration-logic": "file:./users-registration-logic",
     "winston": "^3.3.3"
   },
   "devDependencies": {

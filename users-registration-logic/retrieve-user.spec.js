@@ -1,9 +1,9 @@
 require('dotenv').config()
 const { expect } = require('chai')
 const retrieveUser = require('./retrieve-user')
-const { mongoose, models: { User } } = require('users-data')
+const { mongoose, models: { User } } = require('users-registration-data')
 const { Types: { ObjectId } } = mongoose  
-const { NotFoundError, FormatError } = require('users-errors')
+const { NotFoundError, FormatError } = require('users-registration-errors')
 
 const { env: { MONGO_URI } } = process
 

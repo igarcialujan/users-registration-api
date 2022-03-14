@@ -1,9 +1,9 @@
 require('dotenv').config()
 const { expect } = require('chai')
 const modifyUser = require('./modify-user')
-const { mongoose, models: { User } } = require('users-data')
+const { mongoose, models: { User } } = require('users-registration-data')
 const { Types: { ObjectId } } = mongoose
-const { CredentialsError, FormatError, ConflictError, NotFoundError } = require('users-errors')
+const { CredentialsError, FormatError, ConflictError, NotFoundError } = require('users-registration-errors')
 const bcrypt = require('bcryptjs')
 
 const { env: { MONGO_URI } } = process

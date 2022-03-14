@@ -1,4 +1,4 @@
-const { CredentialsError, ConflictError, FormatError, NotFoundError } = require('../../../users-errors')
+const { CredentialsError, ConflictError, FormatError, NotFoundError } = require('../../users-registration-errors')
 const { JsonWebTokenError, TokenExpiredError } = require('jsonwebtoken')
 const logger = require('../../utils/my-logger')
 

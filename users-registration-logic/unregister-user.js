@@ -1,6 +1,6 @@
-const { models: { User } } = require('users-data')
+const { models: { User } } = require('users-registration-data')
 const { validateId, validatePassword } = require('./helpers/validators')
-const { CredentialsError } = require('users-errors')
+const { CredentialsError } = require('users-registration-errors')
 const bcrypt = require('bcryptjs')
 
 /**
