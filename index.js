@@ -27,6 +27,10 @@ logger.info('starting server');
 
         const jsonBodyParser = bodyParser.json()
 
+        server.get('/', (req, res) => {
+            res.json('Welcome to Users Registration API')
+        })
+
         api.post('/users', jsonBodyParser, registerUser)
 
         api.post('/users/auth', jsonBodyParser, authenticateUser)
