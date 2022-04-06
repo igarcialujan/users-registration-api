@@ -19,7 +19,7 @@ function modifyUser(id, data) {
             
             let { password } = data 
         
-            if (!bcrypt.compareSync(password, user.password)) throw new CredentialsError('wrong password')
+            if (password && !bcrypt.compareSync(password, user.password)) throw new CredentialsError('wrong password')
 
             if (data.newName) {
                 data.name = data.newName 

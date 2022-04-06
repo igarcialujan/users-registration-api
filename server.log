@@ -1282,3 +1282,10 @@
 [USERS-REGISTRATION-API] 2022-03-14T23:53:09.154Z info: starting server
 [USERS-REGISTRATION-API] 2022-03-14T23:53:09.743Z info: server up and listening on port 8000...
 [USERS-REGISTRATION-API] 2022-03-14T23:55:46.824Z info: stopping server
+[USERS-REGISTRATION-API] 2022-04-06T10:47:20.239Z info: starting server
+[USERS-REGISTRATION-API] 2022-04-06T10:47:20.874Z info: server up and listening on port 8000...
+[USERS-REGISTRATION-API] 2022-04-06T10:48:36.979Z error: Illegal arguments: undefined, string
+[USERS-REGISTRATION-API] 2022-04-06T10:55:23.456Z info: stopping server
+[USERS-REGISTRATION-API] 2022-04-06T10:55:25.782Z info: starting server
+[USERS-REGISTRATION-API] 2022-04-06T10:55:26.433Z info: server up and listening on port 8000...
+[USERS-REGISTRATION-API] 2022-04-06T10:58:04.376Z info: stopping server
