@@ -10,7 +10,7 @@ module.exports = async (req, res) => {
         await modifyUser(id, data)
         
         res.status(204).send() 
-    } catch (error) {
+    } catch(error) {
         handleError(error, res)
     }
 }
