@@ -3,12 +3,6 @@ const { ConflictError } = require('users-registration-errors')
 const { models: { User } } = require('users-registration-data')
 const bcrypt = require('bcryptjs')
 
-/**
- * @param {*} name
- * @param {*} username 
- * @param {*} email 
- * @param {*} password 
- */
 function registerUser(name, username, email, password) {
     validateName(name)
     validateUsername(username)
@@ -18,7 +12,7 @@ function registerUser(name, username, email, password) {
     return (async () => {
         try {
             await User.create({ name, username, email, password: bcrypt.hashSync(password) })
-        } catch (error) {
+        } catch(error) {
             if (error.code === 11000)
                 throw new ConflictError('user with this username or email already exists')
 
