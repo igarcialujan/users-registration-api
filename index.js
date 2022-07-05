@@ -11,13 +11,14 @@ const {
     unregisterUser
 } = require('./handlers')
 const logger = require('./utils/my-logger')
-const { env: { PORT }, argv: [, , port = PORT || 8080] } = process
+
+const { env: { PORT, MONGO_URI }, argv: [, , port = PORT || 8080] } = process
 
 logger.info('starting server');
 
 (async () => {
     try {
-        await mongoose.connect(process.env.MONGO_URI || 'mongodb://127.0.0.1/users-api')
+        await mongoose.connect(MONGO_URI || 'mongodb://127.0.0.1/users-api')
             
         const server = express()
 
