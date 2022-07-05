@@ -10,14 +10,17 @@
     "test-coverage": "nyc --reporter=html --reporter=text mocha --timeout 5000 *.spec.js",
     "debug": "mocha --debug"
   },
-  "keywords": ["users", "registration", "authentication"],
+  "keywords": [
+    "users",
+    "registration",
+    "authentication"
+  ],
   "author": "Ismael García Luján",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "users-registration-data": "file:../users-registration-data",
     "users-registration-errors": "file:../users-registration-errors",
-    "puppeteer": "^12.0.1",
     "winston": "^3.3.3",
     "xmlhttprequest": "^1.8.0"
   },
