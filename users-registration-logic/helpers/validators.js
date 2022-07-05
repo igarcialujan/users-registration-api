@@ -41,6 +41,11 @@ function validateNewPassword(newPassword) {
     if (newPassword.length < 8) throw new FormatError('new password has less than 8 characters')
 }
 
+function validateToken(token) {
+    if (typeof token !== 'string') throw new TypeError(`${token} is not a string`)
+    if (!/[a-zA-Z0-9\-_]+?\.[a-zA-Z0-9\-_]+?\.([a-zA-Z0-9\-_]+)$/.test(token)) throw new Error('invalid token')
+}
+
 function validateData(data) {
     if (typeof data !== 'object' || data.constructor.name !== 'Object') throw new TypeError('data is not an object')
 
@@ -65,15 +70,6 @@ function validateData(data) {
         validateArray(favs)
 }
 
-function validateCallback(callback) {
-    if (typeof callback !== 'function') throw new TypeError('callback is not a function')
-}
-
-function validateString(string) {
-    if (typeof string !== 'string') throw new TypeError(`${string} is not a string`)
-    if (!string.trim().length) throw new FormatError('string is empty or blank')
-}
-
 function validateArray(array) {
     if (!(array instanceof Array)) throw new TypeError(`${array} is not an array`)
 }
@@ -84,9 +80,7 @@ module.exports = {
     validateUsername,
     validatePassword,
     validateNewPassword,
+    validateToken,
     validateData,
-    validateCallback,
-    validateString,
-    validateArray,
     validateEmail
 }
