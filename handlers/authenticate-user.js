@@ -9,10 +9,10 @@ module.exports = async (req, res) => {
     try { 
         const id = await authenticateUser(username, password)
 
-        const token = jwt.sign({ sub: id, exp: Math.floor(Date.now() / 1000) + 3600 }, SECRET )
+        const token = jwt.sign({ sub: id, exp: Math.floor(Date.now() / 1000) + 36000 }, SECRET)
 
         res.json({ token })
-    } catch (error) {
+    } catch(error) {
         handleError(error, res)
     }
 }
