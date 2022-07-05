@@ -13,7 +13,8 @@
   "keywords": [
     "users",
     "registration",
-    "authentication"
+    "authentication",
+    "api"
   ],
   "author": "Ismael García Luján",
   "license": "ISC",
