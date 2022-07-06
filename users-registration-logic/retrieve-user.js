@@ -7,15 +7,19 @@ function retrieveUser(id) {
     validateId(id)
 
     return (async () => {
-        const user = await User.findById(id).lean()
-        
-        if (!user) throw new NotFoundError(`user with id ${id} not found`)
-
-        sanitizeDocument(user)
-
-        delete user.password
-
-        return user
+        try {
+            const user = await User.findById(id).lean()
+            
+            if (!user) throw new NotFoundError(`user with id ${id} not found`)
+    
+            sanitizeDocument(user)
+    
+            delete user.password
+    
+            return user
+        } catch(error) {
+            throw error
+        }
     })()
 }
 

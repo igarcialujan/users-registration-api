@@ -9,13 +9,17 @@ function authenticateUser(username, password) {
     validatePassword(password)
 
     return (async () => {
-        const user = await User.findOne({ username })
-        
-        if (!user || !bcrypt.compareSync(password, user.password)) throw new CredentialsError('wrong credentials')
-
-        sanitizeDocument(user)
-        
-        return user.id
+        try {
+            const user = await User.findOne({ username })
+            
+            if (!user || !bcrypt.compareSync(password, user.password)) throw new CredentialsError('wrong credentials')
+    
+            sanitizeDocument(user)
+            
+            return user.id
+        } catch(error) {
+            throw error
+        }
     })()
 }
 

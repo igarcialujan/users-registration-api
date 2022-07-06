@@ -3,10 +3,6 @@ const { validateId, validateData } = require('./helpers/validators')
 const { NotFoundError, ConflictError, CredentialsError } = require('users-registration-errors')
 const bcrypt = require('bcryptjs')
 
-/**
- * @param {*} id 
- * @param {*} data 
- */
 function modifyUser(id, data) {
     validateId(id)
     validateData(data)
