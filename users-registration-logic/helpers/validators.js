@@ -50,23 +50,24 @@ function validateData(data) {
     if (typeof data !== 'object' || data.constructor.name !== 'Object') throw new TypeError('data is not an object')
 
     const { newName, newUsername, newEmail, password, newPassword, favs } = data
+    
+    validatePassword(password)
 
-    if (typeof newName !== 'undefined' || typeof newUsername !== 'undefined' || typeof newEmail !== 'undefined' || typeof newPassword !== 'undefined')
-        validatePassword(password)
+    if (!newName.trim().length && !newUsername.trim().length && !newEmail.trim().length && !newPassword.trim().length) throw new Error('at least one field besides password should be entered')
 
-    if (typeof newName !== 'undefined')
+    if (newName.trim().length)
         validateName(newName)
 
-    if (typeof newUsername !== 'undefined')
+    if (newUsername.trim().length)
         validateUsername(newUsername)
 
-    if (typeof newEmail !== 'undefined')
+    if (newEmail.trim().length)
         validateEmail(newEmail)
 
-    if (typeof newPassword !== 'undefined')
+    if (newPassword.trim().length)
         validateNewPassword(newPassword)
 
-    if (typeof favs !== 'undefined')
+    if (favs.length)
         validateArray(favs)
 }
 
@@ -78,9 +79,9 @@ module.exports = {
     validateId,
     validateName,
     validateUsername,
+    validateEmail,
     validatePassword,
     validateNewPassword,
     validateToken,
-    validateData,
-    validateEmail
+    validateData
 }
