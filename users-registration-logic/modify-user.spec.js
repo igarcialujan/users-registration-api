@@ -20,7 +20,8 @@ describe('modifyUser', () => {
             name: 'Wendy Pan',
             username: 'wendypan',
             email: 'wendypan@gmail.com',
-            password: '123123123'
+            password: '123123123',
+            favs: []
         }
 
         const user2 = await User.create({ ...user, password: bcrypt.hashSync(user.password) })
@@ -48,6 +49,20 @@ describe('modifyUser', () => {
         expect(user2.username).to.equal(newUsername)
         expect(user2.email).to.equal(newEmail)
         expect(bcrypt.compareSync(newPassword, user2.password)).to.be.true
+    })
+
+    it('should succeed with existing id and correct favs', async () => {
+        const favs = ['12345XFD']
+
+        const data = { favs }
+
+        const res = await modifyUser(userId, data)
+
+        expect(res).to.be.undefined
+    
+        const user2 = await User.findById(userId)   
+
+        expect(user2.favs[0]).to.equal(favs[0])
     })
 
     it('should fail with non-existing id', async () => {
