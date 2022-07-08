@@ -54,9 +54,10 @@ describe('modifyUser', () => {
         const { username, password } = user
 
         const userId = ObjectId().toString()
+        const newUsername = username + '-updated'
 
         try {
-            await modifyUser(userId, { username, password })
+            await modifyUser(userId, { newUsername, password })
             
             throw new Error('should not reach this point')
         } catch (error) {
@@ -70,8 +71,9 @@ describe('modifyUser', () => {
         let { username, password } = user
 
         password += '-wrong'
+        const newUsername = username + '-updated'
 
-        const data = { username, password }
+        const data = { newUsername, password }
 
         try {
             await modifyUser(userId, data)
@@ -165,9 +167,7 @@ describe('modifyUser', () => {
                     expect(() => modifyUser('abcd1234abcd1234abcd1234', { password: '123123123', newName: [] })).to.throw(TypeError, 'name is not a string')
                 })
 
-                it('should fail when new name is empty', () => {
-                    expect(() => modifyUser('abcd1234abcd1234abcd1234', { password: '123123123', newName: '' })).to.throw(FormatError, 'name is empty or blank')
-
+                it('should fail when new name is blank', () => {
                     expect(() => modifyUser('abcd1234abcd1234abcd1234', { password: '123123123', newName: '   ' })).to.throw(FormatError, 'name is empty or blank')
                 })
 
@@ -189,9 +189,7 @@ describe('modifyUser', () => {
                     expect(() => modifyUser('abcd1234abcd1234abcd1234', { password: '123123123', newUsername: [] })).to.throw(TypeError, 'username is not a string')
                 })
 
-                it('should fail when new username is empty', () => {
-                    expect(() => modifyUser('abcd1234abcd1234abcd1234', { password: '123123123', newUsername: '' })).to.throw(FormatError, 'username is empty or blank')
-
+                it('should fail when new username is blank', () => {
                     expect(() => modifyUser('abcd1234abcd1234abcd1234', { password: '123123123', newUsername: '   ' })).to.throw(FormatError, 'username is empty or blank')
                 })
 
@@ -219,9 +217,7 @@ describe('modifyUser', () => {
                     expect(() => modifyUser('abcd1234abcd1234abcd1234', { password: '123123123', newEmail: [] })).to.throw(TypeError, 'email is not a string')
                 })
 
-                it('should fail when new email is empty', () => {
-                    expect(() => modifyUser('abcd1234abcd1234abcd1234', { password: '123123123', newEmail: '' })).to.throw(FormatError, 'email is empty or blank')
-
+                it('should fail when new email is blank', () => {
                     expect(() => modifyUser('abcd1234abcd1234abcd1234', { password: '123123123', newEmail: '   ' })).to.throw(FormatError, 'email is empty or blank')
                 })
 
@@ -279,9 +275,7 @@ describe('modifyUser', () => {
                     expect(() => modifyUser('abcd1234abcd1234abcd1234', { password: '123123123', newPassword: [] })).to.throw(TypeError, 'new password is not a string')
                 })
 
-                it('should fail when new password is empty', () => {
-                    expect(() => modifyUser('abcd1234abcd1234abcd1234', { password: '123123123', newPassword: '' })).to.throw(FormatError, 'new password is empty or blank')
-
+                it('should fail when new password is blank', () => {
                     expect(() => modifyUser('abcd1234abcd1234abcd1234', { password: '123123123', newPassword: '   ' })).to.throw(FormatError, 'new password is empty or blank')
                 })
 
@@ -293,6 +287,26 @@ describe('modifyUser', () => {
 
                 it('should fail when new password length is less that 8 characters', () => {
                     expect(() => modifyUser('abcd1234abcd1234abcd1234', { password: '123123123', newPassword: '123123' })).to.throw(FormatError, 'new password has less than 8 characters')
+                })
+            })
+
+            describe('when favs is not valid', () => {
+                it('should fail when favs is not an array', () => {
+                    let favs
+                    favs = true
+                    expect(() => modifyUser('abcd1234abcd1234abcd1234', { favs })).to.throw(TypeError, `${favs} is not an array`)
+
+                    favs = 123
+                    expect(() => modifyUser('abcd1234abcd1234abcd1234', { favs })).to.throw(TypeError, `${favs} is not an array`)
+
+                    favs = {}
+                    expect(() => modifyUser('abcd1234abcd1234abcd1234', { favs })).to.throw(TypeError, `${favs} is not an array`)
+
+                    favs = () => {}
+                    expect(() => modifyUser('abcd1234abcd1234abcd1234', { favs })).to.throw(TypeError, `${favs} is not an array`)
+
+                    favs = ''
+                    expect(() => modifyUser('abcd1234abcd1234abcd1234', { favs })).to.throw(TypeError, `${favs} is not an array`)
                 })
             })
         })

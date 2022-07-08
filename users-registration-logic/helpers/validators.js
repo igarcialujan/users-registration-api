@@ -50,25 +50,26 @@ function validateData(data) {
     if (typeof data !== 'object' || data.constructor.name !== 'Object') throw new TypeError('data is not an object')
 
     const { newName, newUsername, newEmail, password, newPassword, favs } = data
-    
-    validatePassword(password)
 
-    if ((!newName || !newName.trim().length) && (!newUsername || !newUsername.trim().length) && (!newEmail || !newEmail.trim().length) && (!newPassword || !newPassword.trim().length)) throw new Error('at least one field besides password should be entered')
-
-    if (newName && newName.trim().length)
-        validateName(newName)
-
-    if (newUsername && newUsername.trim().length)
-        validateUsername(newUsername)
-
-    if (newEmail && newEmail.trim().length)
-        validateEmail(newEmail)
-
-    if (newPassword && newPassword.trim().length)
-        validateNewPassword(newPassword)
-
-    if (favs && favs.length)
+    if (favs !== undefined) {
         validateArray(favs)
+    } else if (newName || newUsername || newEmail || newPassword) {
+        validatePassword(password)
+
+        if (newName && newName !== '')
+            validateName(newName)
+    
+        if (newUsername && newUsername !== '')
+            validateUsername(newUsername)
+    
+        if (newEmail && newEmail !== '')
+            validateEmail(newEmail)
+    
+        if (newPassword && newPassword !== '')
+            validateNewPassword(newPassword)
+    } else {
+        throw Error('no user data has changed')
+    }
 }
 
 function validateArray(array) {
