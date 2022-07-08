@@ -53,21 +53,21 @@ function validateData(data) {
     
     validatePassword(password)
 
-    if (!newName.trim().length && !newUsername.trim().length && !newEmail.trim().length && !newPassword.trim().length) throw new Error('at least one field besides password should be entered')
+    if ((!newName || !newName.trim().length) && (!newUsername || !newUsername.trim().length) && (!newEmail || !newEmail.trim().length) && (!newPassword || !newPassword.trim().length)) throw new Error('at least one field besides password should be entered')
 
-    if (newName.trim().length)
+    if (newName && newName.trim().length)
         validateName(newName)
 
-    if (newUsername.trim().length)
+    if (newUsername && newUsername.trim().length)
         validateUsername(newUsername)
 
-    if (newEmail.trim().length)
+    if (newEmail && newEmail.trim().length)
         validateEmail(newEmail)
 
-    if (newPassword.trim().length)
+    if (newPassword && newPassword.trim().length)
         validateNewPassword(newPassword)
 
-    if (favs.length)
+    if (favs && favs.length)
         validateArray(favs)
 }
 

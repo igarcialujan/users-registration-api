@@ -31,9 +31,9 @@ describe('modifyUser', () => {
     it('should succeed with existing id and correct password', async () => {
         let { name, username, password } = user 
 
-        newName = name + '-updated'
-        newUsername = username + '-updated'
-        newEmail = 'wendy.pan@gmail.com'
+        const newName = name + '-updated'
+        const newUsername = username + '-updated'
+        const newEmail = 'wendy.pan@gmail.com'
         const newPassword = password + '-updated'
 
         const data = { newName, newUsername, newEmail, password, newPassword }
@@ -238,31 +238,31 @@ describe('modifyUser', () => {
 
             describe('when password is not valid', () => {
                 it('should fail when password is not a string', () => {
-                    expect(() => modifyUser('abcd1234abcd1234abcd1234', { password: true })).to.throw(TypeError, 'password is not a string')
+                    expect(() => modifyUser('abcd1234abcd1234abcd1234', { password: true, newPassword: 234234234 })).to.throw(TypeError, 'password is not a string')
 
-                    expect(() => modifyUser('abcd1234abcd1234abcd1234', { password: 123 })).to.throw(TypeError, 'password is not a string')
+                    expect(() => modifyUser('abcd1234abcd1234abcd1234', { password: 123, newPassword: 234234234 })).to.throw(TypeError, 'password is not a string')
 
-                    expect(() => modifyUser('abcd1234abcd1234abcd1234', { password: {} })).to.throw(TypeError, 'password is not a string')
+                    expect(() => modifyUser('abcd1234abcd1234abcd1234', { password: {}, newPassword: 234234234 })).to.throw(TypeError, 'password is not a string')
 
-                    expect(() => modifyUser('abcd1234abcd1234abcd1234', { password: () => {} })).to.throw(TypeError, 'password is not a string')
+                    expect(() => modifyUser('abcd1234abcd1234abcd1234', { password: () => {}, newPassword: 234234234 })).to.throw(TypeError, 'password is not a string')
 
-                    expect(() => modifyUser('abcd1234abcd1234abcd1234', { password: [] })).to.throw(TypeError, 'password is not a string')
+                    expect(() => modifyUser('abcd1234abcd1234abcd1234', { password: [], newPassword: 234234234 })).to.throw(TypeError, 'password is not a string')
                 })
 
                 it('should fail when password is empty', () => {
-                    expect(() => modifyUser('abcd1234abcd1234abcd1234', { password: '' })).to.throw(FormatError, 'password is empty or blank')
+                    expect(() => modifyUser('abcd1234abcd1234abcd1234', { password: '', newPassword: 234234234 })).to.throw(FormatError, 'password is empty or blank')
 
-                    expect(() => modifyUser('abcd1234abcd1234abcd1234', { password: '   ' })).to.throw(FormatError, 'password is empty or blank')
+                    expect(() => modifyUser('abcd1234abcd1234abcd1234', { password: '   ', newPassword: 234234234 })).to.throw(FormatError, 'password is empty or blank')
                 })
 
                 it('should fail when password has spaces', () => {
-                    expect(() => modifyUser('abcd1234abcd1234abcd1234', { password: ' 123123123 ' })).to.throw(FormatError, 'password has blank spaces')
+                    expect(() => modifyUser('abcd1234abcd1234abcd1234', { password: ' 123123123 ', newPassword: 234234234 })).to.throw(FormatError, 'password has blank spaces')
 
-                    expect(() => modifyUser('abcd1234abcd1234abcd1234', { password: '123 123 123' })).to.throw(FormatError, 'password has blank spaces')
+                    expect(() => modifyUser('abcd1234abcd1234abcd1234', { password: '123 123 123', newPassword: 234234234 })).to.throw(FormatError, 'password has blank spaces')
                 })
 
                 it('should fail when password length is less that 8 characters', () => {
-                    expect(() => modifyUser('abcd1234abcd1234abcd1234', { password: '123123' })).to.throw(FormatError, 'password has less than 8 characters')
+                    expect(() => modifyUser('abcd1234abcd1234abcd1234', { password: '123123', newPassword: 234234234 })).to.throw(FormatError, 'password has less than 8 characters')
                 })
             })
 
