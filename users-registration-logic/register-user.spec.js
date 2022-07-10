@@ -5,10 +5,10 @@ const { mongoose, models: { User } } = require('users-registration-data')
 const { ConflictError, FormatError } = require('users-registration-errors')
 const bcrypt = require('bcryptjs')
 
-const { env: { MONGO_URI } } = process
+const { env: { MONGO_TESTS_URI } } = process
 
 describe('registerUser', () => {
-    before(() => mongoose.connect(MONGO_URI))
+    before(() => mongoose.connect(MONGO_TESTS_URI))
 
     beforeEach(() => User.deleteMany())
 

@@ -5,10 +5,10 @@ const { mongoose, models: { User } } = require('users-registration-data')
 const { Types: { ObjectId } } = mongoose  
 const { NotFoundError, FormatError } = require('users-registration-errors')
 
-const { env: { MONGO_URI } } = process
+const { env: { MONGO_TESTS_URI } } = process
 
 describe('retrieveUser', () => {
-    before(() => mongoose.connect(MONGO_URI))
+    before(() => mongoose.connect(MONGO_TESTS_URI))
 
     beforeEach(() => User.deleteMany())
 
