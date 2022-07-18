@@ -8,7 +8,11 @@
     "watch": "nodemon .",
     "inspect": "node --inspect-brk .",
     "watch-inspect": "nodemon --inspect-brk .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha --timeout 5000",
+    "test-inspect": "mocha --timeout 5000 --inspect *.spec.js",
+    "test-inspect-brk": "mocha --timeout 5000 --inspect-brk *.spec.js",
+    "test-coverage": "nyc --reporter=html --reporter=text mocha --timeout 5000 *.spec.js",
+    "debug": "mocha --debug"
   },
   "keywords": [
     "users",
@@ -30,6 +34,10 @@
     "winston": "^3.3.3"
   },
   "devDependencies": {
-    "nodemon": "^2.0.15"
+    "chai": "^4.3.6",
+    "mocha": "^10.0.0",
+    "nodemon": "^2.0.15",
+    "nyc": "^15.1.0",
+    "supertest": "^6.2.4"
   }
 }
