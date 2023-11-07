@@ -22,7 +22,7 @@ logger.info('starting server');
             
         const server = express()
 
-        server.use(cors())
+        server.use(cors({origin: '*'}))
 
         const api = express.Router()
 
